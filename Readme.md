@@ -1,4 +1,4 @@
-#Still some work to be done thus currently it is not complete
+Still some work to be done thus currently it is not complete
 Remaining:
      (a) checkout Page and probably integration with Stripe API
 
