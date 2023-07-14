@@ -68,7 +68,7 @@ const Products = () => {
         )
     }
     return (
-        <div className='mt-[100px] py-5 mx-10'>
+        <div className='pt-24 mb-5 mx-10'>
             <div className=''>
                 <div className='w-full mb-5 '>
                     <h1 className='font-extrabold  text-2xl text-center'>Latest Products</h1>

@@ -24,10 +24,12 @@ const handleCart =(state=cart, action)=>{
             }
             break;
         case "DELETEITEM":
+            //check if the item exists if so delete it
             const exist1 = state.find((x)=> x.id === product.id);
             if(exist1.qty === 1){
                 return state.filter((x)=>x.id !== exist1.id)
             }else{
+                //if the item is more than 1 item then delete  1 from the list
                 return state.map((x)=>
                 x.id === product.id ? {...x, qty: x.qty - 1} : x
                 );

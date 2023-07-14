@@ -32,9 +32,9 @@ const Product = () => {
 
     const Loading = () => {
         return (
-            <>
+            <div>
                 Loading ....
-            </>
+            </div>
         )
     }
 
@@ -66,7 +66,7 @@ const Product = () => {
     return (
 
         <div>
-            {loading ? <Loading /> : <Showproduct />}
+            {loading ? <Loading /> : <Showproduct/>}
         </div>
 
     )
