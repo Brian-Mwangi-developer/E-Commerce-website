@@ -51,7 +51,7 @@ const Product = () => {
                         <i className='fa fa-star'></i>
                         <span className='font-extrabold text-xl'>KSh {product.price}</span>
                         <div className="card-actions justify-end">
-                            <NavLink to='/cart' className="btn bg-gray-800 text-white focus:text-black hover:text-black  focus:bg-gray-400" onClick={()=> addProduct(product)}>Add to Cart</NavLink>
+                            <NavLink to='/' className="btn bg-gray-800 text-white focus:text-black hover:text-black  focus:bg-gray-400" onClick={()=> addProduct(product)}>Add to Cart</NavLink>
                             <NavLink to='/cart' className="btn bg-gray-400 text-black focus:text-white hover:text-white  focus:bg-black hover:bg-gray-800">Go to Cart</NavLink>
                         </div>
                     </div>

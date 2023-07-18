@@ -1,8 +1,18 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addCart, deleteCart } from '../redux/action/actiontypes';
 function CartItem() {
     const cartItems = useSelector((state) => state.handleCart); //Retrieve cart items from the State
+    const dispatch = useDispatch();
+
+    //Function to handle increment of item quantity
+    const handleIncrement = (itemId) => {
+        dispatch(addCart(cartItems.find((item) => item.id === itemId)))
+    };
+    const handleDecrement = (itemId) => {
+        dispatch(deleteCart(cartItems.find((item) => item.id === itemId)))
+    };
+
     return (
         <div>
             {cartItems.map((item) => (
@@ -20,7 +30,7 @@ function CartItem() {
                         <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                             {/* Add functionality to increase or decrease quantity */}
                             <div className="flex items-center border-gray-100">
-                                <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                                <span onClick={()=>handleDecrement(item.id)}className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
                                     {' '}
                                     -{' '}
                                 </span>
@@ -29,8 +39,9 @@ function CartItem() {
                                     type="number"
                                     value={item.qty}
                                     min="1"
+                                    readOnly // Make the input field read-only to prevent direct editing
                                 />
-                                <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                                <span onClick={()=>handleIncrement(item.id)} className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
                                     {' '}
                                     +{' '}
                                 </span>
